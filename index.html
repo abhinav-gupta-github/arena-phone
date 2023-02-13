@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      th {
+        color: #d50000;
+        font: 16px "Google-Oswald", Arial;
+        text-transform: uppercase;
+        width: 86px;
+        border-right: medium none;
+        padding: 2px 10px;
+        vertical-align: top;
+        text-align: left;
+        font-weight: 600;
+      }
+      td {
+        font: 14px "Arimo", Arial;
+        vertical-align: top;
+        border-bottom: 1px solid #f0f0f0;
+        line-height: 16px;
+      }
+      .title {
+        color: #555;
+        font-weight: bold;
+        width: 110px;
+      }
+      .desc {
+        font: 14px "Arimo", Arial;
+        padding: 2px 0px;
+        vertical-align: top;
+      }
+      table {
+        align-items: center;
+        max-height: 28px;
+        transition: all 0.3s ease 0s;
+        border-top: groove;
+        width: 800px;
+      }
+      .footer {
+        padding: 5px 30px;
+        font-size: 15px;
+        line-height: 1.5;
+        color: #555;
+        font: 13px/20px "Arimo", Arial, sans-serif;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        background-color: #fafafa;
+      }
+      details {
+        float: right;
+        color: #999;
+        font-weight: 700;
+        line-height: 1.8;
+        font-size: 10px;
+      }
+      .last-body {
+        border-bottom: groove;
+      }
+      img {
+        width: 800px;
+      }
+    </style>
+  </head>
+  <body onload="loadHTML();">
+    <div>
+      <table cellspacing="0">
+        <td><img src="Capture.PNG" alt="GSM-Arena-Logo" /></td>
+      </table>
+      <table cellspacing="0">
+        <tr>
+          <th id="nestedHeader" rowspan="4" scope="row">Network</th>
+          <td class="title">Technology</td>
+          <td class="desc">
+            GSM / CDMA / HSPA / EVDO / LTE / 5G
+            <details style="display: flex" onclick="onExpand(event);">
+              <summary>EXPAND</summary>
+            </details>
+          </td>
+        </tr>
+        <div>
+          <tr id="subset1">
+            <td class="title">2G</td>
+            <td>
+              GSM 850 / 900 / 1800 / 1900 - SIM 1 & SIM 2 (dual-SIM) <br />CDMA
+              800 / 1900
+            </td>
+          </tr>
+          <tr id="subset2">
+            <td class="title">3G</td>
+            <td>
+              HSDPA 850 / 900 / 1700(AWS) / 1900 / 2100 <br />CDMA2000 1xEV-DO
+            </td>
+          </tr>
+          <tr id="subset3">
+            <td class="title">4G</td>
+            <td>
+              1, 2, 3, 4, 5, 7, 8, 12, 13, 17, 18, 19, 20, 25, 26, 28, 30, 32,
+              34, 38, 39, 40, 41, 42, 46, 48, 66 - A2894, A2896
+              <br />1, 2, 3, 5, 7, 8, 12, 14, 20, 25, 26, 28, 29, 30, 38, 40,
+              41, 48, 53, 66, 70, 71, 77, 78, 79, 258, 260, 261
+              SA/NSA/Sub6/mmWave - A2651
+            </td>
+          </tr>
+        </div>
+      </table>
+      <table>
+        <tr>
+          <th rowspan="2" scope="row">Launch</th>
+          <td class="title">Announced</td>
+          <td class="desc">2022, September 07</td>
+        </tr>
+        <tr>
+          <td class="title">Status</td>
+          <td class="desc">Available. Released 2022, September 16</td>
+        </tr>
+      </table>
+      <table class="last-body">
+        <tr>
+          <th rowspan="5" scope="row">Body</th>
+          <td class="title">Dimensions</td>
+          <td class="desc">160.7 x 77.6 x 7.9 mm (6.33 x 3.06 x 0.31 in)</td>
+        </tr>
+        <tr>
+          <td class="title">Weight</td>
+          <td class="desc">240 g (8.47 oz)</td>
+        </tr>
+        <tr>
+          <td class="title">Build</td>
+          <td class="desc">
+            Glass front (Corning-made glass), glass back (Corning-made glass),
+            stainless steel frame
+          </td>
+        </tr>
+        <tr>
+          <td class="title">SIM</td>
+          <td class="desc">
+            Nano-SIM and eSIM - International <br />Dual eSIM with multiple
+            numbers - USA <br />Dual SIM (Nano-SIM, dual stand-by) - China
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td class="desc">
+            IP68 dust/water resistant (up to 6m for 30 mins) <br />Apple Pay
+            (Visa, MasterCard, AMEX certified)
+          </td>
+        </tr>
+      </table>
+      <div class="footer">
+        <strong>Disclaimer.</strong> We can not guarantee that the information
+        on this page is 100% correct. Read more
+      </div>
+    </div>
+    <tfoot></tfoot>
+  </body>
+</html>
+<script>
+  function loadHTML() {
+    document.getElementById("subset1").style.opacity = 0;
+    document.getElementById("subset1").style.position = "inherit";
+    document.getElementById("subset2").style.opacity = 0;
+    //document.getElementById("subset2").style.position = "absolute";
+    document.getElementById("subset3").style.opacity = 0;
+    //document.getElementById("subset3").style.position = "fixed";
+  }
+  var btnCount = 0;
+  var rowspan = "";
+  function onExpand(event) {
+    btnCount++;
+    console.log(btnCount);
+    if (btnCount % 2 != 0) {
+      document.getElementById("subset1").style.opacity = 1;
+      document.getElementById("subset2").style.opacity = 1;
+      document.getElementById("subset3").style.opacity = 1;
+      console.log("if condition");
+    } else {
+      loadHTML();
+      console.log("else condition");
+    }
+  }
+</script>
